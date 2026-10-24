@@ -1,30 +1,32 @@
+import { Link } from "react-router-dom";
+import "./App.css";
+
 function Navbar() {
     return (
-        <nav className="bg-white">
-            <div className="flex items-center gap-10 px-6 py-6">
+        <nav className="navbar">
 
-                <a
-                    href="#about"
-                    className="text-sky-400 text-lg hover:text-sky-500"
-                >
-                    About
-                </a>
+            <h1 className="nav-logo">DEV@Deakin</h1>
 
-                <a
-                    href="#work"
-                    className="text-sky-400 text-lg hover:text-sky-500"
-                >
-                    Work
-                </a>
+            <input
+                type="text"
+                placeholder="Search"
+                className="nav-search"
+            />
 
-                <a
-                    href="#contact"
-                    className="text-sky-400 text-lg hover:text-sky-500"
-                >
-                    Contact
-                </a>
+            <div className="nav-links">  
+                <Link to="/Post">
+                    Post
+                </Link>
 
+                <Link to="/login">
+                    Login
+                </Link>
+
+                <Link to="/">
+                    Home
+                </Link>
             </div>
+
         </nav>
     );
 }
