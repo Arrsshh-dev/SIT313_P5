@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import "./App.css";
 
 function Footer() {
     const [email, setEmail] = useState("");
@@ -48,17 +50,14 @@ function Footer() {
     };
 
     return (
-        <footer id="contact" className="mt-16">
+        <footer id="contact" className="site-footer">
             {/* Newsletter */}
-            <div className="flex justify-center px-4">
+            <div className="newsletter">
                 <form
                     onSubmit={handleSubscribe}
-                    className="flex flex-wrap items-center justify-center bg-gray-200 px-3 py-3 gap-3 mt-6 mb-6"
+                    className="newsletter-form"
                 >
-                    <label
-                        htmlFor="newsletter-email"
-                        className="text-xl font-bold tracking-wide text-black"
-                    >
+                    <label htmlFor="newsletter-email">
                         SIGN UP FOR OUR DAILY INSIDER
                     </label>
 
@@ -71,14 +70,9 @@ function Footer() {
                         placeholder="Enter your email"
                         required
                         disabled={loading}
-                        className="h-8 px-2 text-sm border border-gray-500 focus:outline-none"
                     />
 
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className="h-8 px-3 bg-gray-400 text-black text-xs hover:bg-gray-500 disabled:opacity-50"
-                    >
+                    <button type="submit" disabled={loading}>
                         {loading ? "Subscribing..." : "Subscribe"}
                     </button>
                 </form>
@@ -88,54 +82,70 @@ function Footer() {
                 <p
                     role="status"
                     aria-live="polite"
-                    className={`text-center mb-4 ${
-                        success ? "text-green-700" : "text-red-600"
-                    }`}
+                    className={success ? "success-message" : "error-message"}
                 >
                     {message}
                 </p>
             )}
 
-            {/* Links */}
-            <div className="max-w-5xl mx-auto px-6 py-10 border-t border-gray-200">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <h3 className="font-semibold mb-3">Explore</h3>
-                        <div className="flex flex-col gap-2 text-gray-600">
-                            <a href="/">Home</a>
-                            <a href="/#articles">Articles</a>
-                            <a href="/#tutorials">Tutorials</a>
-                        </div>
-                    </div>
+            {/* Footer links */}
+            <div className="footer-main">
+                <div className="footer-column">
+                    <h3>Explore</h3>
+                    <a href="/">Home</a>
+                    <a href="#questions">Questions</a>
+                    <a href="#articles">Articles</a>
+                    <a href="#tutorials">Tutorials</a>
+                </div>
 
-                    <div>
-                        <h3 className="font-semibold mb-3">Support</h3>
-                        <div className="flex flex-col gap-2 text-gray-600">
-                            <a href="#">FAQs</a>
-                            <a href="#">Help</a>
-                            <a href="#contact">Contact Us</a>
-                        </div>
-                    </div>
+                <div className="footer-column">
+                    <h3>Support</h3>
+                    <a href="#faqs">FAQs</a>
+                    <a href="#help">Help</a>
+                    <a href="#contact">Contact Us</a>
+                </div>
 
-                    <div>
-                        <h3 className="font-semibold mb-3">Stay Connected</h3>
-                        <div className="flex justify-center gap-5 text-gray-600">
-                            <a href="#">Facebook</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">Instagram</a>
-                        </div>
+                <div className="footer-column">
+                    <h3>Stay Connected</h3>
+                    <div className="social-icons">
+                        <a
+                            href="https://www.facebook.com/"
+                            aria-label="Facebook"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <FaFacebookF />
+                        </a>
+
+                        <a
+                            href="https://twitter.com/"
+                            aria-label="Twitter"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <FaTwitter />
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/"
+                            aria-label="Instagram"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <FaInstagram />
+                        </a>
                     </div>
                 </div>
             </div>
 
-            {/* Bottom */}
-            <div className="text-center py-6 border-t border-gray-200 text-gray-500">
+            {/* Footer bottom */}
+            <div className="footer-bottom">
                 <p>DEV@Deakin 2022</p>
 
-                <div className="flex justify-center gap-5 mt-3 text-sm">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms</a>
-                    <a href="#">Code of Conduct</a>
+                <div className="footer-legal">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#conduct">Code of Conduct</a>
                 </div>
             </div>
         </footer>
